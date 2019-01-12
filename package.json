@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "ant-design-pro": "^2.1.1",
+    "antd": "^3.12.1",
     "aphrodite": "^2.2.3",
     "gh-pages": "^2.0.1",
+    "node-sass": "^4.11.0",
     "package.json": "^2.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
