@@ -1,10 +1,9 @@
 import React from "react";
 import Particles from "react-particles-js";
-import { css, StyleSheet } from "aphrodite";
 
 const AuthenticationLayout = props => {
   return (
-    <div className={css(styles.container)}>
+    <div className="AuthenticationLayout">
       <div>
         <Particles
           params={{
@@ -24,24 +23,12 @@ const AuthenticationLayout = props => {
             zIndex: "-1",
             backgroundColor: "rgb(248, 248, 248)"
           }}
-          className={css(styles.particleContainer)}
+          className="particle-container"
         />
       </div>
       <div>{props.children}</div>
     </div>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    minHeight: "100%"
-  },
-  particleContainer: {
-    minHeight: "100%",
-    backgroundColor: "#f8f8f8",
-    position: "fixed",
-    zIndex: -1
-  }
-});
 
 export default AuthenticationLayout;

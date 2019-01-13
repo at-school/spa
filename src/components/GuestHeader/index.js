@@ -1,34 +1,22 @@
 import { Layout } from "antd";
 import React from "react";
-import Logo from "./Logo";
-import Navigation from "./Navigation";
 import "./GuestHeader.scss";
-import { css, StyleSheet } from "aphrodite";
+import GuestHeaderLogo from "./GuestHeaderLogo";
+import Navigation from "./Navigation";
+import PropTypes from "prop-types";
 
-const HeaderGuest = ({ menu, background }) => (
-  <Layout.Header
-    className={
-      css(styles.mainContainer) +
-      " navigation" +
-      (background ? " navigation-background" : "")
-    }
-  >
-    <Logo />
+const HeaderGuest = ({ menu }) => (
+  <Layout.Header className="GuestHeader">
+    <GuestHeaderLogo />
     <Navigation menu={menu} />
   </Layout.Header>
 );
 
-const styles = StyleSheet.create({
-  mainContainer: {
-    position: "absolute",
-    left: 0,
-    width: "100%",
-    backgroundColor: "transparent",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    height: 48
-  }
-});
+HeaderGuest.propTypes = {
+  menu: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    url: PropTypes.string
+  })).isRequired
+}
 
 export default HeaderGuest;
