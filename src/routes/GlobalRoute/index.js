@@ -1,15 +1,15 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import GlobalRouteLanding from "./GlobalRouteLanding";
-import Register from "./Register";
-import SignIn from "./SignIn";
+import GlobalRouteRegister from "./GlobalRouteRegister";
+import GlobalRouteSignIn from "./GlobalRouteSignIn";
 
 const GlobalRoute = () => {
   return (
     <div>
       <Route exact path="/" render={GlobalRouteLanding} />
-      <Route exact path="/signin" render={SignIn} />
-      <Route exact path="/register" render={Register} />
+      <Route exact path="/signin" render={GlobalRouteSignIn} />
+      <Route exact path="/register" render={GlobalRouteRegister} />
     </div>
   );
 };
