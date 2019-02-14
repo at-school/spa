@@ -1,7 +1,8 @@
 import { Form, Icon, Input, Button, Checkbox } from "antd";
 import React from "react";
+import "./GlobalRouteSignInForm.scss"
 
-class NormalLoginForm extends React.Component {
+class GlobalRouteSignInForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -15,7 +16,7 @@ class NormalLoginForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <div>
-        <Form onSubmit={this.handleSubmit} className="login-form">
+        <Form onSubmit={this.handleSubmit} className="GlobalRouteSignInForm">
           <Form.Item>
             {getFieldDecorator("userName", {
               rules: [
@@ -46,21 +47,25 @@ class NormalLoginForm extends React.Component {
             )}
           </Form.Item>
           <Form.Item>
-            {getFieldDecorator("remember", {
-              valuePropName: "checked",
-              initialValue: true
-            })(<Checkbox>Remember me</Checkbox>)}
-            <a className="login-form-forgot" href="">
-              Forgot password
-            </a>
+            <div className="remember-me-forgot-pw">
+              {getFieldDecorator("remember", {
+                valuePropName: "checked",
+                initialValue: true
+              })(<Checkbox>Remember me</Checkbox>)}
+              <a className="login-form-forgot" href="/">
+                Forgot password
+              </a>
+            </div>
             <Button
               type="primary"
               htmlType="submit"
               className="login-form-button"
             >
-              Log in
+              Sign In
             </Button>
-            Or <a href="">register now!</a>
+            <div>
+              Or <a href="/register">register now!</a>
+            </div>
           </Form.Item>
         </Form>
       </div>
@@ -68,6 +73,8 @@ class NormalLoginForm extends React.Component {
   }
 }
 
-const WrappedNormalLoginForm = Form.create({ name: "normal_login" })(
-  NormalLoginForm
+const WrappedGlobalRouteSignInForm = Form.create({ name: "normal_login" })(
+  GlobalRouteSignInForm
 );
+
+export default WrappedGlobalRouteSignInForm;

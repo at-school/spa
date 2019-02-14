@@ -6,11 +6,11 @@ import GlobalRouteSignIn from "./GlobalRouteSignIn";
 
 const GlobalRoute = () => {
   return (
-    <div>
+    <React.Fragment>
       <Route exact path="/" render={GlobalRouteLanding} />
       <Route exact path="/signin" render={GlobalRouteSignIn} />
       <Route exact path="/register" render={GlobalRouteRegister} />
-    </div>
+    </React.Fragment>
   );
 };
 
