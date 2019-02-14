@@ -1,7 +1,7 @@
 import { Drawer } from "antd";
 import React from "react";
 
-const GlobalRouteRegisterFormAgreement = ({ visible, onClose }) => {
+const RegisterFormAgreement = ({ visible, onClose }) => {
   return (
     <Drawer
       title="Terms and Conditions"
@@ -138,4 +138,4 @@ const GlobalRouteRegisterFormAgreement = ({ visible, onClose }) => {
   );
 };
 
-export default GlobalRouteRegisterFormAgreement;
+export default RegisterFormAgreement;

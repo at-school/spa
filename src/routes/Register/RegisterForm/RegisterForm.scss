@@ -1,0 +1,15 @@
+@import "../../../styles/variables";
+.RegisterForm {
+    flex: 1;
+    padding-left: 30px;
+    min-width: 330px;
+    .agreement {
+        color: #1890ff;
+    }
+    @media (max-width: $screen-md-min) {
+        padding-left: 0;
+    }
+    @media (max-width: $screen-xs-min) {
+        width: auto;
+    }
+}

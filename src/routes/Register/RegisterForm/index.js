@@ -1,19 +1,9 @@
-import {
-  AutoComplete,
-  Button,
-  Checkbox,
-  Form,
-  Icon,
-  Input,
-  Select,
-  Tooltip
-} from "antd";
+import { Button, Checkbox, Form, Icon, Input, Select, Tooltip } from "antd";
 import React from "react";
-import "./GlobalRouteRegisterForm.scss";
-import GlobalRouteRegisterFormAgreement from "./GlobalRouteRegisterFormAgreement";
+import "./RegisterForm.scss";
+import RegisterFormAgreement from "./RegisterFormAgreement";
 
 const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
 
 class GlobalRouteRegisterForm extends React.Component {
   state = {
@@ -93,7 +83,7 @@ class GlobalRouteRegisterForm extends React.Component {
         <Form
           layout="vertical"
           onSubmit={this.handleSubmit}
-          className="GlobalRouteRegisterForm"
+          className="RegisterForm"
         >
           <Form.Item label="E-mail">
             {getFieldDecorator("email", {
@@ -207,7 +197,7 @@ class GlobalRouteRegisterForm extends React.Component {
             </Button>
           </Form.Item>
         </Form>
-        <GlobalRouteRegisterFormAgreement
+        <RegisterFormAgreement
           onClose={this.toggleAgreementDrawer}
           visible={this.state.agreementVisible}
         />

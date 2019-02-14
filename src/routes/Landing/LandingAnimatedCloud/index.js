@@ -1,9 +1,9 @@
 import React from "react";
-import "./GlobalRouteLandingAnimatedCloud.scss"
+import "./LandingAnimatedCloud.scss";
 
-const GlobalRouteLandingAnimatedCloud = props => {
+const LandingAnimatedCloud = props => {
   return (
-    <div className="GlobalRouteLandingAnimatedCloud">
+    <div className="LandingAnimatedCloud">
       <div className="main-intro">{props.children}</div>
       <div className="background-wrap">
         <div className="x1">
@@ -26,4 +26,4 @@ const GlobalRouteLandingAnimatedCloud = props => {
   );
 };
 
-export default GlobalRouteLandingAnimatedCloud;
+export default LandingAnimatedCloud;

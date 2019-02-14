@@ -1,6 +1,6 @@
-import { Form, Icon, Input, Button, Checkbox } from "antd";
+import { Button, Checkbox, Form, Icon, Input } from "antd";
 import React from "react";
-import "./GlobalRouteSignInForm.scss"
+import "./SignInForm.scss";
 
 class GlobalRouteSignInForm extends React.Component {
   handleSubmit = e => {
@@ -16,7 +16,7 @@ class GlobalRouteSignInForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <div>
-        <Form onSubmit={this.handleSubmit} className="GlobalRouteSignInForm">
+        <Form onSubmit={this.handleSubmit} className="SignInForm">
           <Form.Item>
             {getFieldDecorator("userName", {
               rules: [
