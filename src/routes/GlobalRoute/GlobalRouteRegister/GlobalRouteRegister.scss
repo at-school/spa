@@ -1,0 +1,10 @@
+@import "../../../styles/variables";
+
+.GlobalRouteRegister {
+    display: flex;
+    flex-direction: row;
+
+    @media (max-width: $screen-md-min) {
+        flex-direction: column;
+    } 
+}

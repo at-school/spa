@@ -1,0 +1,18 @@
+@import "../../../../styles/variables";
+
+.GlobalRouteRegisterForm {
+  flex: 1;
+  padding-left: 30px;
+  width: 400px;
+
+  .agreement {
+    color: #1890ff;
+  }
+
+  @media (max-width: $screen-md-min) {
+    padding-left: 0;
+  }
+  @media (max-width: $screen-xs-min) {
+    width: auto;
+  }
+}

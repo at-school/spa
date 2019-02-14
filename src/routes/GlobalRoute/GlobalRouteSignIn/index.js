@@ -1,10 +1,11 @@
 import React from "react";
 import AuthenticationLayout from "../../../layouts/AuthenticationLayout";
+import GlobalRouteSignInForm from "./GlobalRouteSignInForm";
 
 const GlobalRouteSignIn = () => {
   return (
     <AuthenticationLayout>
-      <div> This is the GlobalRouteSignIn route</div>
+      <GlobalRouteSignInForm />
     </AuthenticationLayout>
   );
 };
