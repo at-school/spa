@@ -12,7 +12,7 @@ const Navigation = ({ menu }) => (
   >
     {menu.map((item, key) => (
       <Menu.Item key={key.toString()}>
-        <Link to={item.url}>{item.name}</Link>
+        <Link className="text-decoration-none" to={item.url}>{item.name}</Link>
       </Menu.Item>
     ))}
   </Menu>

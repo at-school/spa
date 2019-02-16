@@ -6,7 +6,7 @@ import "./AuthenticationLayout.scss";
 const AuthenticationLayout = props => {
   return (
     <div className="AuthenticationLayout">
-      <GuestHeader menu={[]} />
+      <GuestHeader textLogoHidden={true} menu={[]} />
       <Particles
         params={{
           particles: {

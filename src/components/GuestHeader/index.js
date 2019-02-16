@@ -5,18 +5,25 @@ import GuestHeaderLogo from "./GuestHeaderLogo";
 import Navigation from "./Navigation";
 import PropTypes from "prop-types";
 
-const HeaderGuest = ({ menu }) => (
+const HeaderGuest = ({ menu, textLogoHidden }) => (
   <Layout.Header className="GuestHeader">
-    <GuestHeaderLogo />
+    <GuestHeaderLogo textLogoHidden={textLogoHidden} />
     <Navigation menu={menu} />
   </Layout.Header>
 );
 
+HeaderGuest.defaultProps = {
+  textLogoHidden: false
+};
+
 HeaderGuest.propTypes = {
-  menu: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    url: PropTypes.string
-  })).isRequired
-}
+  menu: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      url: PropTypes.string
+    })
+  ).isRequired,
+  textLogoHidden: PropTypes.bool
+};
 
 export default HeaderGuest;

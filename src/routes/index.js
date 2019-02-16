@@ -12,15 +12,10 @@ class AppRouter extends React.Component {
           <Route exact path="/" render={Landing} />
           <Route path="/signin" render={SignIn} />
           <Route path="/register" render={Register} />
-          <Route path="/authentication" render={Temp} />
         </React.Fragment>
       </BrowserRouter>
     );
   }
 }
-
-const Temp = () => {
-  return <div>This is the temp component</div>;
-};
 
 export default AppRouter;

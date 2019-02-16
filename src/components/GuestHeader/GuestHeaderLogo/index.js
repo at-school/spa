@@ -1,15 +1,25 @@
+import PropTypes from "prop-types";
 import React from "react";
 import "./GuestHeaderLogo.scss";
+import { Link } from "react-router-dom";
 
-const GuestHeaderLogo = () => (
+const GuestHeaderLogo = ({ textLogoHidden }) => (
   <div className="GuestHeaderLogo">
-    <a href="/">
+    <Link className="text-decoration-none" to="/">
       <img src="/logo.png" alt="Logo" />
-      <h2 className="hidden-xs hidden-sm">
+      <h2 className={`d-none ${textLogoHidden ? "d-md-none" : "d-block"}`}>
         <span className="at">@</span> School
       </h2>
-    </a>
+    </Link>
   </div>
 );
+
+GuestHeaderLogo.defaultProps = {
+  textLogoHidden: false
+};
+
+GuestHeaderLogo.propTypes = {
+  textLogoHidden: PropTypes.bool
+};
 
 export default GuestHeaderLogo;

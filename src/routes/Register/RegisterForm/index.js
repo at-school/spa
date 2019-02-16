@@ -5,7 +5,7 @@ import RegisterFormAgreement from "./RegisterFormAgreement";
 
 const { Option } = Select;
 
-class GlobalRouteRegisterForm extends React.Component {
+class RegisterForm extends React.Component {
   state = {
     confirmDirty: false,
     autoCompleteResult: [],
@@ -27,7 +27,7 @@ class GlobalRouteRegisterForm extends React.Component {
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   };
 
-  compareToFirstPassword = (rule, value, callback) => {
+  compareToFirstPassword = (_, value, callback) => {
     const form = this.props.form;
     if (value && value !== form.getFieldValue("password")) {
       callback("Two passwords that you enter is inconsistent!");
@@ -36,24 +36,12 @@ class GlobalRouteRegisterForm extends React.Component {
     }
   };
 
-  validateToNextPassword = (rule, value, callback) => {
+  validateToNextPassword = (_, value, callback) => {
     const form = this.props.form;
     if (value && this.state.confirmDirty) {
       form.validateFields(["confirm"], { force: true });
     }
     callback();
-  };
-
-  handleWebsiteChange = value => {
-    let autoCompleteResult;
-    if (!value) {
-      autoCompleteResult = [];
-    } else {
-      autoCompleteResult = [".com", ".org", ".net"].map(
-        domain => `${value}${domain}`
-      );
-    }
-    this.setState({ autoCompleteResult });
   };
 
   toggleAgreementDrawer = () => {
@@ -125,23 +113,12 @@ class GlobalRouteRegisterForm extends React.Component {
               ]
             })(<Input type="password" onBlur={this.handleConfirmBlur} />)}
           </Form.Item>
-          <Form.Item label="First Name">
-            {getFieldDecorator("firstname", {
+          <Form.Item label="Name">
+            {getFieldDecorator("name", {
               rules: [
                 {
                   required: true,
-                  message: "Please input your firstname!",
-                  whitespace: true
-                }
-              ]
-            })(<Input />)}
-          </Form.Item>
-          <Form.Item label="Last Name">
-            {getFieldDecorator("lastname", {
-              rules: [
-                {
-                  required: true,
-                  message: "Please input your lastname!",
+                  message: "Please input your name!",
                   whitespace: true
                 }
               ]
@@ -157,15 +134,7 @@ class GlobalRouteRegisterForm extends React.Component {
               </span>
             }
           >
-            {getFieldDecorator("nickname", {
-              rules: [
-                {
-                  required: true,
-                  message: "Please input your nickname!",
-                  whitespace: true
-                }
-              ]
-            })(<Input />)}
+            {getFieldDecorator("nickname")(<Input />)}
           </Form.Item>
           <Form.Item label="Phone Number">
             {getFieldDecorator("phone", {
@@ -178,7 +147,14 @@ class GlobalRouteRegisterForm extends React.Component {
           </Form.Item>
           <Form.Item>
             {getFieldDecorator("agreement", {
-              valuePropName: "checked"
+              valuePropName: "checked",
+              rules: [
+                {
+                  validator: (_, value, cb) =>
+                    Boolean(value) ? cb() : cb(true),
+                  message: "You must agree to terms and conditions"
+                }
+              ]
             })(
               <Checkbox>
                 I have read the{" "}
@@ -206,8 +182,6 @@ class GlobalRouteRegisterForm extends React.Component {
   }
 }
 
-const WrappedRegistrationForm = Form.create({ name: "register" })(
-  GlobalRouteRegisterForm
-);
+const WrappedRegisterForm = Form.create({ name: "register" })(RegisterForm);
 
-export default WrappedRegistrationForm;
+export default WrappedRegisterForm;

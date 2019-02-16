@@ -1,23 +1,20 @@
 .GuestHeaderLogo {
-  height: 64px;
-  flex-grow: 1;
-  display: flex;
-
-  a {
-    font-family: "Heebo";
-    text-decoration: none;
+    height: 64px;
+    flex-grow: 1;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    img {
-      height: 60px;
-      margin-right: 10px;
+    a {
+        font-family: "Heebo";
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+            height: 60px;
+            margin-right: 10px;
+        }
+        h2 {
+            color: white;
+            margin: 0;
+        }
     }
-
-    h2 {
-        color: white;
-        margin: 0;
-    }
-  }
 }
