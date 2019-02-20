@@ -7,7 +7,7 @@ const GuestHeaderLogo = ({ textLogoHidden }) => (
   <div className="GuestHeaderLogo">
     <Link className="text-decoration-none" to="/">
       <img src="/logo.png" alt="Logo" />
-      <h2 className={`d-none ${textLogoHidden ? "d-md-none" : "d-block"}`}>
+      <h2 className={`d-none ${textLogoHidden ? "d-md-none" : "d-md-block"}`}>
         <span className="at">@</span> School
       </h2>
     </Link>
