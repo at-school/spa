@@ -10,7 +10,8 @@ class RegisterForm extends React.Component {
     confirmDirty: false,
     autoCompleteResult: [],
     agreementVisible: false,
-    agree: false
+    agree: false,
+    resendEmailButtonVisible: false
   };
 
   handleSubmit = e => {
@@ -18,6 +19,8 @@ class RegisterForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
+        // do something to the server
+        this.setState({resendEmailButtonVisible: true})
       }
     });
   };
@@ -53,6 +56,10 @@ class RegisterForm extends React.Component {
     this.setState(prevState => ({
       agreementVisible: !prevState.agreementVisible
     }));
+  };
+
+  onResendEmailConfirmation = () => {
+    console.log("Here");
   };
 
   render() {
@@ -170,6 +177,15 @@ class RegisterForm extends React.Component {
           <Form.Item>
             <Button type="primary" htmlType="submit">
               Register
+            </Button>
+            <Button
+              className={`ml-2 ${
+                this.state.resendEmailButtonVisible ? "" : "d-none"
+              }`}
+              type="default"
+              onClick={this.onResendEmailConfirmation}
+            >
+              Resend Email
             </Button>
           </Form.Item>
         </Form>

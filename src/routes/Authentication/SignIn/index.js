@@ -1,5 +1,5 @@
 import React from "react";
-import AuthenticationLayout from "../../layouts/AuthenticationLayout";
+import AuthenticationLayout from "../../../layouts/AuthenticationLayout";
 import SignInForm from "./SignInForm";
 
 const SignIn = () => {

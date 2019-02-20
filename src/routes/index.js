@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Landing from "./Landing";
-import Register from "./Register";
-import SignIn from "./SignIn";
+import { SignIn, Register, CreateAccountSuccess } from "./Authentication";
 
 class AppRouter extends React.Component {
   render() {
@@ -12,6 +11,7 @@ class AppRouter extends React.Component {
           <Route exact path="/" render={Landing} />
           <Route path="/signin" render={SignIn} />
           <Route path="/register" render={Register} />
+          <Route path="/create-account-success" render={CreateAccountSuccess} />
         </React.Fragment>
       </BrowserRouter>
     );
