@@ -9,7 +9,8 @@ const Landing = () => {
     <GuestLayout
       menu={[
         { name: "Sign In", url: "/signin" },
-        { name: "Register", url: "/register" }
+        { name: "Register", url: "/register" },
+        { name: "Blog", url: "/blog" }
       ]}
     >
       <div className="Landing">

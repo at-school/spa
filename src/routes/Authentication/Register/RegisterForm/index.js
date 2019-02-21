@@ -2,6 +2,7 @@ import { Button, Checkbox, Form, Icon, Input, Select, Tooltip } from "antd";
 import React from "react";
 import "./RegisterForm.scss";
 import RegisterFormAgreement from "./RegisterFormAgreement";
+import { withRouter } from "react-router-dom";
 
 const { Option } = Select;
 
@@ -18,9 +19,31 @@ class RegisterForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
+        console.log(values);
+        this.props
+          .createUser({
+            variables: {
+              name: values.name,
+              email: values.email,
+              password: values.password,
+              confirmedPassword: values.confirm,
+              phone: values.phone,
+              role: "3"
+            }
+          })
+          .then(res => {
+            console.log(res);
+            this.props.history.push({
+              pathname: "/create-account-success",
+              state: {
+                id: res.data.createUser.id
+              }
+            });
+          })
+          .catch(err => console.log(err));
         console.log("Received values of form: ", values);
         // do something to the server
-        this.setState({resendEmailButtonVisible: true})
+        this.setState({ resendEmailButtonVisible: true });
       }
     });
   };
@@ -175,7 +198,11 @@ class RegisterForm extends React.Component {
             )}
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button
+              loading={this.props.loading}
+              type="primary"
+              htmlType="submit"
+            >
               Register
             </Button>
             <Button
@@ -198,6 +225,8 @@ class RegisterForm extends React.Component {
   }
 }
 
-const WrappedRegisterForm = Form.create({ name: "register" })(RegisterForm);
+const WrappedRegisterForm = Form.create({ name: "register" })(
+  withRouter(RegisterForm)
+);
 
 export default WrappedRegisterForm;
