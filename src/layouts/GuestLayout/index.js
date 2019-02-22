@@ -1,12 +1,13 @@
 import React from "react";
 import GuestHeader from "../../components/GuestHeader";
 import PropTypes from "prop-types";
+import "./GuestLayout.scss"
 
 const GuestLayout = props => {
   return (
     <React.Fragment>
       <GuestHeader menu={props.menu} />
-      {props.children}
+      <div className="GuestLayout">{props.children}</div>
     </React.Fragment>
   );
 };

@@ -19,7 +19,6 @@ class RegisterForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log(values);
         this.props
           .createUser({
             variables: {
@@ -32,7 +31,6 @@ class RegisterForm extends React.Component {
             }
           })
           .then(res => {
-            console.log(res);
             this.props.history.push({
               pathname: "/create-account-success",
               state: {
@@ -41,7 +39,6 @@ class RegisterForm extends React.Component {
             });
           })
           .catch(err => console.log(err));
-        console.log("Received values of form: ", values);
         // do something to the server
         this.setState({ resendEmailButtonVisible: true });
       }
@@ -82,7 +79,6 @@ class RegisterForm extends React.Component {
   };
 
   onResendEmailConfirmation = () => {
-    console.log("Here");
   };
 
   render() {
