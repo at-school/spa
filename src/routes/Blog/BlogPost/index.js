@@ -3,6 +3,7 @@ import GuestLayout from "../../../layouts/GuestLayout";
 import marked from "marked";
 import posts from "../posts";
 import "./BlogPost.scss";
+import PropTypes from "prop-types";
 
 const BlogPost = ({ match }) => {
   const mdPath = require(`../posts/${match.params.postId}.md`);
@@ -36,6 +37,10 @@ const BlogPost = ({ match }) => {
       </div>
     </GuestLayout>
   );
+};
+
+BlogPost.propTypes = {
+  match: PropTypes.object.isRequired
 };
 
 export default BlogPost;

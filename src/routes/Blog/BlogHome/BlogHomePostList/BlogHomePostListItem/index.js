@@ -2,6 +2,7 @@ import React from "react";
 import "./BlogHomePostListItem.scss";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const BlogHomePostListItem = ({ title, date, authors, slug }) => {
   return (
@@ -24,6 +25,18 @@ const BlogHomePostListItem = ({ title, date, authors, slug }) => {
       </div>
     </div>
   );
+};
+
+BlogHomePostListItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  authors: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  slug: PropTypes.string.isRequired
 };
 
 export default BlogHomePostListItem;
