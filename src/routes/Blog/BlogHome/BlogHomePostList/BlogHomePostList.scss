@@ -1,0 +1,12 @@
+@import "../../../../styles/variables";
+.BlogHomePostList {
+    @media (max-width: $screen-xs-max) {
+        padding: 0 10px;
+    }
+    @media (min-width: $screen-md-min) {
+        padding: 0 128px;
+    }
+    @media (min-width: $screen-lg-min) {
+        padding: 0 264px;
+    }
+}

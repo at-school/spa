@@ -1,0 +1,25 @@
+.BlogHomePostListItem {
+    border-top: 1px dotted rgb(236, 236, 236);
+    border-bottom: 1px dotted rgb(236, 236, 236);
+    padding-top: 24px;
+    padding-bottom: 12px;
+    min-height: 200px;
+    transition: all .1s linear;
+    display: flex;
+    flex-direction: column;
+    h4 {
+        text-decoration: underline;
+        text-decoration-color: rgb(216, 216, 216);
+        cursor: pointer;
+        &:hover {
+            text-decoration-color: rgb(196, 196, 196);
+        }
+    }
+    h6 {
+        flex-grow: 1;
+    }
+    
+    a {
+        font-size: 18px;
+    }
+}

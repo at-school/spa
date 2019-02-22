@@ -1,23 +1,14 @@
-import { Icon } from "antd";
 import React from "react";
-import GuestLayout from "../../layouts/GuestLayout";
-import "./Blog.scss";
+import { Route } from "react-router-dom";
+import BlogHome from "./BlogHome";
+import BlogPost from "./BlogPost";
 
 const Blog = () => {
   return (
-    <GuestLayout
-      menu={[
-        { name: "Sign In", url: "/signin" },
-        { name: "Register", url: "/register" }
-      ]}
-    >
-      <div className="Blog">
-        <div className="SearchInput">
-          <Icon type="search" />
-          <input />
-        </div>
-      </div>
-    </GuestLayout>
+    <React.Fragment>
+      <Route exact path="/blog" component={BlogHome} />
+      <Route path="/blog/:postId" component={BlogPost} />
+    </React.Fragment>
   );
 };
 
