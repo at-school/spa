@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { CreateAccountSuccess, Register, SignIn } from "./Authentication";
 import Blog from "./Blog";
 import Landing from "./Landing";
+import Teacher from "./Teacher";
 
 class AppRouter extends React.Component {
   render() {
@@ -13,7 +14,11 @@ class AppRouter extends React.Component {
           <Route path="/signin" component={SignIn} />
           <Route path="/blog" component={Blog} />
           <Route path="/register" component={Register} />
-          <Route path="/create-account-success" component={CreateAccountSuccess} />
+          <Route
+            path="/create-account-success"
+            component={CreateAccountSuccess}
+          />
+          <Route path="/teacher" component={Teacher} />
         </React.Fragment>
       </BrowserRouter>
     );

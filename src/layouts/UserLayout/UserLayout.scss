@@ -1,0 +1,33 @@
+.UserLayout {
+    .UserLayoutLogoContainer {
+        background: #002140;
+        img {
+            max-width: 40px;
+        }
+        h4 {
+            color: white;
+            margin-bottom: 0;
+            font-family: EB Garamond, serif;
+            overflow: hidden;
+            transition: all .2s;
+        }
+    }
+    .LayoutContent {
+        transition: all .2s;
+        margin-left: 200px;
+    }
+    &.LayoutCollapsed {
+        .LayoutContent {
+            margin-left: 80px;
+        }
+        .UserLayoutLogoContainer {
+            img {
+                margin-right: 0 !important;
+            }
+            h4 {
+                font-size: 0;
+                width: 0;
+            }
+        }
+    }
+}
