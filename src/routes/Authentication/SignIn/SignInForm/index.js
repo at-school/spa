@@ -1,13 +1,34 @@
 import { Button, Checkbox, Form, Icon, Input } from "antd";
 import React from "react";
 import "./SignInForm.scss";
+import { withRouter } from "react-router-dom";
 
 class GlobalRouteSignInForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
+        console.log(values);
+        this.props
+          .signin({
+            variables: {
+              email: values.email,
+              password: values.password,
+            }
+          })
+          .then(res => {
+            console.log(res);
+            this.props.history.push({
+              pathname: "/sign-in-success",
+              state: {
+                id: res.data.signin.id
+              }
+            });
+          })
+          .catch(err => console.log(err));
         console.log("Received values of form: ", values);
+        // do something to the server
+        this.setState({ resendEmailButtonVisible: true });
       }
     });
   };
@@ -18,16 +39,16 @@ class GlobalRouteSignInForm extends React.Component {
       <div>
         <Form onSubmit={this.handleSubmit} className="SignInForm">
           <Form.Item>
-            {getFieldDecorator("userName", {
+            {getFieldDecorator("email", {
               rules: [
-                { required: true, message: "Please input your username!" }
+                { required: true, message: "Please input your email!" }
               ]
             })(
               <Input
                 prefix={
                   <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
                 }
-                placeholder="Username"
+                placeholder="email"
               />
             )}
           </Form.Item>
@@ -74,7 +95,7 @@ class GlobalRouteSignInForm extends React.Component {
 }
 
 const WrappedGlobalRouteSignInForm = Form.create({ name: "normal_login" })(
-  GlobalRouteSignInForm
+  withRouter(GlobalRouteSignInForm)
 );
 
 export default WrappedGlobalRouteSignInForm;
