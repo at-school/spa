@@ -11,6 +11,7 @@ const SignIn = () => {
       <Mutation mutation={SIGN_IN}>
         {(signin, { data, loading, error }) => {
           if (error) {
+            console.log(error);
             message.error("Failed to fetch data.");
           }
           return (
